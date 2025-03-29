@@ -20,6 +20,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "date-fns": "^3.0.6",
+    "draft-js": "^0.11.7",
     "lucide-react": "^0.303.0",
     "markdown-draft-js": "^2.4.0",
     "nanoid": "^5.0.4",
@@ -32,6 +33,7 @@
     "react-markdown": "^9.0.1",
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7",
+    "thirdweb": "^5.93.7",
     "zod": "^3.22.4"
   },
   "devDependencies": {
@@ -49,5 +51,6 @@
     "prettier-plugin-tailwindcss": "^0.5.10",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
-  }
+  },
+  "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
 }

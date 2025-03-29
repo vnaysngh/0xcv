@@ -22,6 +22,8 @@ import { X } from "lucide-react";
 import { draftToMarkdown } from "markdown-draft-js";
 import { useForm } from "react-hook-form";
 import { createJobPosting } from "./actions";
+import { upload } from "thirdweb/storage";
+import { client } from "@/config/thirdwebClient";
 
 export default function NewJobForm() {
   const form = useForm<CreateJobValues>({
@@ -47,17 +49,29 @@ export default function NewJobForm() {
       }
     });
 
-    try {
-      await createJobPosting(formData);
-    } catch (error) {
-      alert("Something went wrong, please try again.");
-    }
+    const uris = await upload({
+      client,
+      files: [
+        {
+          name: "something",
+          data: values,
+        },
+      ],
+    });
+
+    console.log(uris, "uris");
+
+    // try {
+    //   await createJobPosting(formData);
+    // } catch (error) {
+    //   alert("Something went wrong, please try again.");
+    // }
   }
 
   return (
     <main className="m-auto my-10 max-w-3xl space-y-10">
       <div className="space-y-5 text-center">
-        <H1>Find your perfect developer</H1>
+        <H1>Find your perfect candidate</H1>
         <p className="text-muted-foreground">
           Get your job posting seen by thousands of job seekers.
         </p>

@@ -37,7 +37,7 @@ export function generateMetadata({
       type,
       location,
       remote: remote === "true",
-    })} | Flow Jobs`,
+    })} | 0xCV`,
   };
 }
 
@@ -58,11 +58,11 @@ export default async function Home({
         <p className="text-muted-foreground">Find your dream job.</p>
       </div>
       <section className="flex flex-col gap-4 md:flex-row">
-        <JobFilterSidebar defaultValues={filterValues} />
+        {/*         <JobFilterSidebar defaultValues={filterValues} />
         <JobResults
           filterValues={filterValues}
           page={page ? parseInt(page) : undefined}
-        />
+        /> */}
       </section>
     </main>
   );
