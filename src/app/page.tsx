@@ -3,6 +3,7 @@ import JobResults from "@/components/JobResults";
 import H1 from "@/components/ui/h1";
 import { JobFilterValues } from "@/lib/validation";
 import { Metadata } from "next";
+import prisma from "@/lib/prisma";
 
 interface PageProps {
   searchParams: {
@@ -58,11 +59,11 @@ export default async function Home({
         <p className="text-muted-foreground">Find your dream job.</p>
       </div>
       <section className="flex flex-col gap-4 md:flex-row">
-        {/*         <JobFilterSidebar defaultValues={filterValues} />
+        <JobFilterSidebar defaultValues={filterValues} />
         <JobResults
           filterValues={filterValues}
           page={page ? parseInt(page) : undefined}
-        /> */}
+        />
       </section>
     </main>
   );

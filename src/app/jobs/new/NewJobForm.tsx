@@ -24,6 +24,8 @@ import { useForm } from "react-hook-form";
 import { createJobPosting } from "./actions";
 import { upload } from "thirdweb/storage";
 import { client } from "@/config/thirdwebClient";
+import { download } from "thirdweb/storage";
+import { useEffect } from "react";
 
 export default function NewJobForm() {
   const form = useForm<CreateJobValues>({
@@ -40,6 +42,19 @@ export default function NewJobForm() {
     formState: { isSubmitting },
   } = form;
 
+  /*  useEffect(() => {
+    (async function () {
+      const file = await download({
+        client,
+        uri: "ipfs://QmcFnVKPCV6Rw9nEKNArtJcfMQbks7iFkufTm19yowP4jW/0",
+      });
+
+      const json = await file.json();
+
+      console.log(json, "file");
+    })();
+  }, []); */
+
   async function onSubmit(values: CreateJobValues) {
     const formData = new FormData();
 
@@ -49,23 +64,23 @@ export default function NewJobForm() {
       }
     });
 
-    const uris = await upload({
-      client,
-      files: [
-        {
-          name: "something",
-          data: values,
-        },
-      ],
-    });
+    // const uris = await upload({
+    //   client,
+    //   files: [
+    //     {
+    //       name: "something",
+    //       data: values,
+    //     },
+    //   ],
+    // });
 
-    console.log(uris, "uris");
+    // console.log(uris, "uris");
 
-    // try {
-    //   await createJobPosting(formData);
-    // } catch (error) {
-    //   alert("Something went wrong, please try again.");
-    // }
+    try {
+      await createJobPosting(formData);
+    } catch (error) {
+      alert("Something went wrong, please try again.");
+    }
   }
 
   return (
