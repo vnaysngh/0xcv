@@ -28,11 +28,11 @@ export default async function JobResults({
   const searchFilter: Prisma.JobWhereInput = searchString
     ? {
         OR: [
-          { title: { search: searchString } },
-          { companyName: { search: searchString } },
-          { type: { search: searchString } },
-          { locationType: { search: searchString } },
-          { location: { search: searchString } },
+          { title: { contains: searchString, mode: "insensitive" } },
+          { companyName: { contains: searchString, mode: "insensitive" } },
+          { type: { contains: searchString, mode: "insensitive" } },
+          { locationType: { contains: searchString, mode: "insensitive" } },
+          { location: { contains: searchString, mode: "insensitive" } },
         ],
       }
     : {};
