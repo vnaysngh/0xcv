@@ -64,24 +64,40 @@ export default function NewJobForm() {
       }
     });
 
-    // const uris = await upload({
-    //   client,
-    //   files: [
-    //     {
-    //       name: "something",
-    //       data: values,
-    //     },
-    //   ],
-    // });
-
-    // console.log(uris, "uris");
-
     try {
       await createJobPosting(formData);
     } catch (error) {
       alert("Something went wrong, please try again.");
     }
   }
+
+  // async function onSubmit(values: CreateJobValues) {
+  //   const formData = new FormData();
+
+  //   Object.entries(values).forEach(([key, value]) => {
+  //     if (value) {
+  //       formData.append(key, value);
+  //     }
+  //   });
+
+  //   // const uris = await upload({
+  //   //   client,
+  //   //   files: [
+  //   //     {
+  //   //       name: "something",
+  //   //       data: values,
+  //   //     },
+  //   //   ],
+  //   // });
+
+  //   // console.log(uris, "uris");
+
+  //   try {
+  //     await createJobPosting(formData);
+  //   } catch (error) {
+  //     alert("Something went wrong, please try again.");
+  //   }
+  // }
 
   return (
     <main className="m-auto my-10 max-w-3xl space-y-10">
