@@ -1,10 +1,10 @@
 import prisma from "@/lib/prisma";
 import { cn } from "@/lib/utils";
 import { JobFilterValues } from "@/lib/validation";
-import { Prisma } from "@prisma/client";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import JobListItem from "./JobListItem";
+import { Prisma } from "../../generated/prisma";
 
 interface JobResultsProps {
   filterValues: JobFilterValues;
